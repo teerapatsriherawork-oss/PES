@@ -51,6 +51,13 @@ const userRoutes = require("./routes/users.routes");
 const authRoutes = require("./routes/auth.routes");
 const uploadRoutes = require("./routes/upload.routes");
 
+// Admin
+const periodsRoutes = require("./routes/periods.routes"); // <--- เพิ่มบรรทัดนี้ TS
+const topicsRoutes = require("./routes/topics.routes");
+const assignmentsRoutes = require("./routes/assignments.routes");
+// user
+// const selfAssessmentRoutes = require("./routes/self_assessment.routes");
+
 // http://localhost:7000/api/auth/login
 // app.use('/api/auth', require('./routes/auth.routes'));
 app.use("/api/auth", authRoutes);
@@ -59,6 +66,13 @@ app.use("/api/users", userRoutes);
 // http://localhost:7000/api/upload
 app.use("/api/upload", uploadRoutes);
 // จะได้ /api/periods/active, /api/indicators, ...
+
+// Admin
+app.use("/api/periods", periodsRoutes); // <--- เพิ่มบรรทัดนี้เข้าไป TS
+app.use("/api/topics", topicsRoutes);
+app.use("/api/assignments", assignmentsRoutes);
+// ีuser
+// app.use("/api/self-assessment", selfAssessmentRoutes);
 
 // << เส้นทางสำหรับ Period/Indicator/EvidenceType และ POST /attachments
 app.use("/api", attachmentsApi);           // จะได้ /api/periods/active, /api/indicators, ...
